@@ -5,13 +5,10 @@ namespace App;
 class UserController
 {
 
-    private UserRepository $userRepository;
-
-    public function setUserRepository(UserRepository $userRepository): self
-    {
-        $this->userRepository = $userRepository;
-        return $this;
-    }
+    public function __construct(
+        private UserRepository $userRepository
+    )
+    {}
 
     public function handle()
     {
