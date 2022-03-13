@@ -10,9 +10,9 @@ class Container
     public function __construct()
     {
         $this->objects = [
-            'db' => fn() => new Db(),
-            'repository.user' => fn() => new UserRepository($this->get('db')),
-            'controller.user' => fn() => new UserController($this->get('repository.user')),
+            Db::class => fn() => new Db(),
+            UserRepository::class => fn() => new UserRepository($this->get(Db::class)),
+            UserController::class => fn() => new UserController($this->get(UserRepository::class)),
         ];
     }
 

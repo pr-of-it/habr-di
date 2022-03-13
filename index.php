@@ -7,7 +7,7 @@ require_once __DIR__ . '/App/UserController.php';
 require_once __DIR__ . '/App/Container.php';
 
 try {
-    $controller = (new \App\Container())->get('controller.user');
+    $controller = (new \App\Container())->get(\App\UserController::class);
     echo $controller->handle();
 } catch (Throwable $exception) {
     echo 'Ошибка: ' . $exception->getMessage();
